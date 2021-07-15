@@ -32,11 +32,10 @@ if( !empty($block['align']) ) {
 }
 
 // Load values and assign defaults.
-$title = get_field('box_title') ?: 'Your bold text here';
-$content = get_field('box_content') ?: 'The rest of the box text...';
+$content = get_field('box_content', false, false) ?: 'Put your callout box text right here...';
 //$text_color = get_field('text_color');
 
 ?>
 <div id="<?php echo esc_attr($id); ?>" class="<?php echo esc_attr($className); ?>">
-  <?php echo "<strong> {$title} </strong> {$content}";?>
+  <?php echo $content;?>
 </div>

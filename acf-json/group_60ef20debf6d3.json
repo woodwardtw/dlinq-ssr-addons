@@ -3,25 +3,6 @@
     "title": "Callout Box",
     "fields": [
         {
-            "key": "field_60ef20e88510e",
-            "label": "Box Title",
-            "name": "box_title",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "maxlength": ""
-        },
-        {
             "key": "field_60ef20f34b113",
             "label": "Box Content",
             "name": "box_content",
@@ -36,7 +17,7 @@
             },
             "default_value": "",
             "tabs": "visual",
-            "toolbar": "basic",
+            "toolbar": "full",
             "media_upload": 1,
             "delay": 0
         },
@@ -85,5 +66,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1626288888
+    "modified": 1626295177
 }
