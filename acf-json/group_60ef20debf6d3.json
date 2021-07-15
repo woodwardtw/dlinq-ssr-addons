@@ -54,7 +54,7 @@
             {
                 "param": "block",
                 "operator": "==",
-                "value": "all"
+                "value": "acf\/callout-box"
             }
         ]
     ],
@@ -66,5 +66,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1626295177
+    "modified": 1626373478
 }

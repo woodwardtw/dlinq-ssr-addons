@@ -1,0 +1,152 @@
+{
+    "key": "group_60f077d041580",
+    "title": "Button Maker",
+    "fields": [
+        {
+            "key": "field_60f077dc166ed",
+            "label": "Button Type",
+            "name": "button_type",
+            "type": "radio",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "previous": "Previous Button",
+                "next": "Next Button",
+                "regular": "Regular Internal Link Button",
+                "regular-external": "Regular External Link Button"
+            },
+            "allow_null": 0,
+            "other_choice": 0,
+            "default_value": "",
+            "layout": "vertical",
+            "return_format": "value",
+            "save_other_choice": 0
+        },
+        {
+            "key": "field_60f07813ff13a",
+            "label": "Choose the destination page",
+            "name": "destination_page",
+            "type": "post_object",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_60f077dc166ed",
+                        "operator": "==",
+                        "value": "previous"
+                    }
+                ],
+                [
+                    {
+                        "field": "field_60f077dc166ed",
+                        "operator": "==",
+                        "value": "next"
+                    }
+                ],
+                [
+                    {
+                        "field": "field_60f077dc166ed",
+                        "operator": "==",
+                        "value": "regular"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "page"
+            ],
+            "taxonomy": "",
+            "allow_null": 0,
+            "multiple": 0,
+            "return_format": "id",
+            "ui": 1
+        },
+        {
+            "key": "field_60f078d52a713",
+            "label": "External Link",
+            "name": "external_link",
+            "type": "url",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_60f077dc166ed",
+                        "operator": "==",
+                        "value": "regular-external"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": ""
+        },
+        {
+            "key": "field_60f07aa1b5e2f",
+            "label": "Button Title",
+            "name": "button_title",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_60f077dc166ed",
+                        "operator": "==",
+                        "value": "regular-external"
+                    }
+                ],
+                [
+                    {
+                        "field": "field_60f077dc166ed",
+                        "operator": "==",
+                        "value": "regular"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "all"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "modified": 1626375096
+}
