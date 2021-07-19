@@ -32,7 +32,7 @@ if( !empty($block['align']) ) {
 }
 
 // Load values and assign defaults.
-$content = get_field('box_content', false, false) ?: 'Put your callout box text right here...';
+$content = get_field('box_content') ?: 'Put your callout box text right here...';
 //$text_color = get_field('text_color');
 
 ?>

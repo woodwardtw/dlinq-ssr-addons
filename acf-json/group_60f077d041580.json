@@ -136,7 +136,7 @@
             {
                 "param": "block",
                 "operator": "==",
-                "value": "all"
+                "value": "acf\/ssr-button"
             }
         ]
     ],
@@ -148,5 +148,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1626375096
+    "modified": 1626386669
 }
