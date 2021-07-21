@@ -28,6 +28,9 @@ if( !empty($block['className']) ) {
     $className .= ' ' . $block['className'];
 }
 
+if( !empty($block['align']) ) {
+    $className .= ' align' . $block['align'];
+}
 
 // Load URL values . . . . . . . 
 if(get_field('destination_page')){
@@ -63,6 +66,6 @@ if (get_field('button_type')){
 ?>
 
 
-<?php echo "<a id='{$id}' class='lts_button lts_button_sc lts_button_default lt_rounded lt_flat ssr_button {$float}' href='{$destination}'>
+<?php echo "<a id='{$id}' class='lts_button lts_button_sc lts_button_default lt_rounded lt_flat ssr_button {$float} {$className}' href='{$destination}'>
             {$button_title}
    </a>";?>

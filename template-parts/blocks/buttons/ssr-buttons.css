@@ -4,7 +4,7 @@ a.ssr_button, #content a.ssr_button{
 	border-color:#54b3a4;
 	display: inline-block;
     padding: 7px 25px;
-    margin: 0 10px 15px 0px;
+    margin: 0 0 15px 0;
     font-weight: bold;
     border-radius: 3px;
     -webkit-border-radius: 3px;
@@ -19,4 +19,25 @@ a.ssr_button.next {
 a.ssr_button.previous {
 	text-align:  left;
 	float:  left;
+}
+
+#content a.ssr_button.alignleft {
+	display: inline;
+	float: left;
+	margin-right: 1.5em;
+}
+
+#content a.ssr_button.alignright {
+	display: inline;
+	float: right;
+	margin-left: 1.5em;
+}
+
+#content a.ssr_button.aligncenter {
+	clear: both;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	width: 100%;
 }

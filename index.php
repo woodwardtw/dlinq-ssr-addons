@@ -75,7 +75,6 @@ add_action( 'init', 'ssr_add_tags_to_pages' );
 
 
 
-
 //LOGGER -- like frogger but more useful
 
 if ( ! function_exists('write_log')) {
