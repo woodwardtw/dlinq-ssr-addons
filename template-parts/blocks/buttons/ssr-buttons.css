@@ -39,5 +39,5 @@ a.ssr_button.previous {
 	margin-left: auto;
 	margin-right: auto;
 	text-align: center;
-	width: 100%;
+	max-width: 100%;
 }
