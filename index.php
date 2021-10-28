@@ -74,6 +74,31 @@ function ssr_add_tags_to_pages() {
 add_action( 'init', 'ssr_add_tags_to_pages' );
 
 
+add_action('admin_init', 'wpse51831_init');
+function wpse51831_init()
+{
+    if(!current_user_can('edit_posts')) 
+    {
+        wp_redirect(home_url());
+        exit();
+    }
+}
+
+add_filter('show_admin_bar', 'wpse51831_hide_admin_bar');
+/*
+ * hide the admin bar for `subscribers`
+ *
+ * @uses current_user_can
+ * @return boolean
+ */
+function wpse51831_hide_admin_bar($bool)
+{
+    if(!current_user_can('edit_posts'))
+    {
+        $bool = false;
+    }
+    return $bool;
+}
 
 //LOGGER -- like frogger but more useful
 
