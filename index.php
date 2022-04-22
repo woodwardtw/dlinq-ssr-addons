@@ -100,6 +100,41 @@ function wpse51831_hide_admin_bar($bool)
     return $bool;
 }
 
+
+//duplicate content via filter based on ACF assignation 
+add_filter( 'the_content', 'ssr_duplicate_content', 1);
+
+function ssr_duplicate_content($content){
+    $post_id = get_the_ID();
+    // var_dump($post->ID);
+    if (get_field('duplicate_content')){
+        $source_id = get_field('duplicate_content');
+        $source_post = get_post($source_id); // specific post
+        $source_content = $source_post->post_content;
+        return $source_content;
+    }
+}
+
+
+
+// add_filter( 'the_content', 'filter_the_content_in_the_main_loop', 1 );
+ 
+// function filter_the_content_in_the_main_loop( $content ) {
+//     $post_id = get_the_ID();
+//     var_dump($post_id);
+//     $source_id = 'foo';
+//     // Check if we're inside the main loop in a single Post.
+//     if ( is_singular() && in_the_loop() && is_main_query() ) {
+//         $source_id = get_field('duplicate_content');
+//         $source_post = get_post(115); // specific post
+//         $source_content = $source_post->post_content;
+//         return $content . $source_content;
+//         //return $content . esc_html__( 'I’m filtering the content inside the main loop', 'wporg');
+//     }
+ 
+//     return $content;
+// }
+
 //LOGGER -- like frogger but more useful
 
 if ( ! function_exists('write_log')) {
@@ -111,6 +146,8 @@ if ( ! function_exists('write_log')) {
       }
    }
 }
+
+
 
   //print("<pre>".print_r($a,true)."</pre>");
 

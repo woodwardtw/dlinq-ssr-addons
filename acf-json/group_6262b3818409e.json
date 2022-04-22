@@ -1,0 +1,47 @@
+{
+    "key": "group_6262b3818409e",
+    "title": "Duplicate",
+    "fields": [
+        {
+            "key": "field_6262b3876984f",
+            "label": "Duplicate Content",
+            "name": "duplicate_content",
+            "type": "post_object",
+            "instructions": "Choose the page you'd like to duplicate for this page.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "page"
+            ],
+            "taxonomy": "",
+            "allow_null": 0,
+            "multiple": 0,
+            "return_format": "id",
+            "ui": 1
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "page"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1650635722
+}
