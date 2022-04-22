@@ -14,6 +14,16 @@ Text Domain: my-toolset
 */
 defined( 'ABSPATH' ) or die( 'No script kiddies please!' );
 
+add_action('wp_enqueue_scripts', 'ssr_load_scripts');
+
+function ssr_load_scripts() {                           
+    $deps = array('jquery');
+    $version= '1.0'; 
+    $in_footer = true;    
+    wp_enqueue_script('ssr-main-js', plugin_dir_url( __FILE__) . 'js/dlinq-ssr-main.js', $deps, $version, $in_footer); 
+}
+
+
 //Add callout box Guten block
 add_action('acf/init', 'ssr_callout_box_init_block_types');
 function ssr_callout_box_init_block_types() {
