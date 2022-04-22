@@ -14,9 +14,9 @@ Text Domain: my-toolset
 */
 defined( 'ABSPATH' ) or die( 'No script kiddies please!' );
 
-add_action('wp_enqueue_scripts', 'ssr_load_scripts');
+add_action('wp_enqueue_scripts', 'dlinq_ssr_load_scripts');
 
-function ssr_load_scripts() {                           
+function dlinq_ssr_load_scripts() {                           
     $deps = array('jquery');
     $version= '1.0'; 
     $in_footer = true;    

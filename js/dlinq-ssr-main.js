@@ -2,7 +2,7 @@ window.onload = function() {
   const currentUrl =  window.location.href.split('?')[0];;//replace with window.location.href in production
   var menuLinks = [];
 
-  let menu = document.getElementById('menu-sampling');
+  let menu = document.querySelector('.bellows-nav');
   let lis = menu.querySelectorAll('li');
   lis.forEach((li) => {
     let link = li.querySelector('a').href;
