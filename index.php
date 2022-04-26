@@ -122,6 +122,9 @@ function ssr_duplicate_content($content){
         $source_content = $source_post->post_content;
         return $source_content;
     }
+    else {
+        return $content;
+    }
 }
 
 
