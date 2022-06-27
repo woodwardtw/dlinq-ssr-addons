@@ -11,18 +11,20 @@ window.onload = function() {
   //console.log(menuLinks)
 
   let position = parseInt(menuLinks.indexOf(currentUrl));//gets current url array position
-  //console.log(position)
+  console.log(position)
   if(position-1 >=0){
     var previous = menuLinks[position-1];
+    console.log(previous);
   }
   if(position+1 <= menuLinks.length){
-     var next = menuLinks[position+1];
+    var next = menuLinks[position+1];
+    console.log(next);
   }
 
   if(document.querySelector('.next')){
     let nextButton = document.querySelector('.next');
     let nextButtonUrl =  nextButton.href;
-    if (nextButtonUrl != next){
+    if (next != undefined && nextButtonUrl != next){
       nextButton.href = next;
     }
   }
@@ -30,7 +32,7 @@ window.onload = function() {
   if(document.querySelector('.previous')){
     let prevButton = document.querySelector('.previous');
     let prevButtonUrl =  prevButton.href;
-    if (prevButtonUrl != previous){
+    if (previous!= undefined && prevButtonUrl != previous){
       prevButton.href = previous;
     }
   }
