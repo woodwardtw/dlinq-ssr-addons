@@ -1,10 +1,18 @@
-.ssr-b-nav {
+#ssr-b-nav {
 	position: fixed;
     bottom: 0;
     left: 0;
     width: 100%;
-    background-color: red;
+    background-color: #0e3a5f;
     z-index: 100;
     display: flex;
     justify-content: space-between;
+}
+
+
+#ssr-b-nav a.ssr_button {
+	color:  #fff;
+	margin:  10px;
+	width:  120px;
+	text-align: center;
 }

@@ -145,16 +145,16 @@ function ssr_bottom_nav($content){
     if (get_field('module', $post_id)){ 
         $true = TRUE;  
         $mod = get_field('module', $post_id);           
-        $html .= "<a class='lts_button lts_button_sc lts_button_default lt_rounded lt_flat ssr_button next' href='{$mod}'></i> Next Module </a>";          
+        $html .= "<a class='lts_button lts_button_sc lts_button_default lt_rounded lt_flat ssr_button module' href='{$mod}'></i> Next Module </a>";          
     } 
     if (get_field('next', $post_id)){        
         $true = TRUE; 
         $next = get_field('next', $post_id);            
-        $html .= "<a class='lts_button lts_button_sc lts_button_default lt_rounded lt_flat ssr_button next' href='{$next}'></i>Next <i class='fa fa-angle-right'>
+        $html .= "<a class='lts_button lts_button_sc lts_button_default lt_rounded lt_flat ssr_button next' href='{$next}'></i>Next <i class='fa fa-angle-right'></i>
    </a>";     
     } 
     if($true === TRUE){
-        return $content . "<div class='ssr-b-nav'>{$html}</div>";
+        return $content . "<div id='ssr-b-nav'>{$html}</div>";
     } else {
         return $content;
     }   
