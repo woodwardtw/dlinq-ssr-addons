@@ -12,7 +12,15 @@
 
 #ssr-b-nav a.ssr_button {
 	color:  #fff;
+	background-color: #54b3a4;
 	margin:  10px;
 	width:  120px;
 	text-align: center;
 }
+
+  @media only screen and (max-width: 700px) {
+  	#ssr-b-nav a.ssr_button {
+		width:  33vw;
+	}
+
+ }
