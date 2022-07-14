@@ -20,7 +20,9 @@ function dlinq_ssr_load_scripts() {
     $deps = array('jquery');
     $version= '1.0'; 
     $in_footer = true;    
-    wp_enqueue_script('ssr-main-js', plugin_dir_url( __FILE__) . 'js/dlinq-ssr-main.js', $deps, $version, $in_footer); 
+    //wp_enqueue_script('ssr-main-js', plugin_dir_url( __FILE__) . 'js/dlinq-ssr-main.js', $deps, $version, $in_footer); 
+    wp_enqueue_style( 'ssr-plugin-styles', plugin_dir_url( __FILE__) . 'css/dlinq-ssr-main.css', array(), '1.2');
+
 }
 
 
@@ -126,6 +128,38 @@ function ssr_duplicate_content($content){
         return $content;
     }
 }
+
+
+add_filter( 'the_content', 'ssr_bottom_nav', 1);
+
+function ssr_bottom_nav($content){
+    $html = '';
+    $true = FALSE;
+    $post_id = get_the_ID();
+    if (get_field('previous', $post_id)){  
+        $true = TRUE; 
+        $prev = get_field('previous', $post_id);  
+        $html .= "<a class='lts_button lts_button_sc lts_button_default lt_rounded lt_flat ssr_button previous' href='{$prev}'><i class='fa fa-angle-left'></i> Previous
+   </a>";   
+    }
+    if (get_field('module', $post_id)){ 
+        $true = TRUE;  
+        $mod = get_field('module', $post_id);           
+        $html .= "<a class='lts_button lts_button_sc lts_button_default lt_rounded lt_flat ssr_button next' href='{$mod}'></i> Next Module </a>";          
+    } 
+    if (get_field('next', $post_id)){        
+        $true = TRUE; 
+        $next = get_field('next', $post_id);            
+        $html .= "<a class='lts_button lts_button_sc lts_button_default lt_rounded lt_flat ssr_button next' href='{$next}'></i>Next <i class='fa fa-angle-right'>
+   </a>";     
+    } 
+    if($true === TRUE){
+        return $content . "<div class='ssr-b-nav'>{$html}</div>";
+    } else {
+        return $content;
+    }   
+}
+
 
 
 
