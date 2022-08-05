@@ -129,7 +129,7 @@ function ssr_duplicate_content($content){
     }
 }
 
-
+//BUILD BOTTOM FIXED NAV
 add_filter( 'the_content', 'ssr_bottom_nav', 1);
 
 function ssr_bottom_nav($content){
@@ -142,11 +142,11 @@ function ssr_bottom_nav($content){
         $html .= "<a class='lts_button lts_button_sc lts_button_default lt_rounded lt_flat ssr_button previous' href='{$prev}'><i class='fa fa-angle-left'></i> Previous
    </a>";   
     }
-    if (get_field('module', $post_id)){ 
-        $true = TRUE;  
-        $mod = get_field('module', $post_id);           
-        $html .= "<a class='lts_button lts_button_sc lts_button_default lt_rounded lt_flat ssr_button module' href='{$mod}'></i> Next Module </a>";          
-    } 
+    // if (get_field('module', $post_id)){ 
+    //     $true = TRUE;  
+    //     $mod = get_field('module', $post_id);           
+    //     $html .= "<a class='lts_button lts_button_sc lts_button_default lt_rounded lt_flat ssr_button module' href='{$mod}'></i> Next Module </a>";          
+    // } 
     if (get_field('next', $post_id)){        
         $true = TRUE; 
         $next = get_field('next', $post_id);            
@@ -160,6 +160,22 @@ function ssr_bottom_nav($content){
     }   
 }
 
+//remove title elements in () on front end
+
+add_filter('the_title', 'ssr_clean_duplicate_title', 10, 2);
+function ssr_clean_duplicate_title($title, $id) {
+    if ( !is_admin() ) {
+        if (strpos($title,"(")>0){
+            $title = ssr_remove_parenthesis($title);
+        }
+    }
+    return $title;
+}
+ 
+function ssr_remove_parenthesis($title) {
+    $position = strpos($title,"(");
+    return substr($title, 0, $position);
+}
 
 
 
