@@ -21,7 +21,7 @@ function dlinq_ssr_load_scripts() {
     $version= '1.0.1'; 
     $in_footer = true;    
     wp_enqueue_script('ssr-main-js', plugin_dir_url( __FILE__) . 'js/dlinq-ssr-main.js', $deps, $version, $in_footer); 
-    wp_enqueue_style( 'ssr-plugin-styles', plugin_dir_url( __FILE__) . 'css/dlinq-ssr-main.css', array(), '1.2');
+    wp_enqueue_style( 'ssr-plugin-styles', plugin_dir_url( __FILE__) . 'css/dlinq-ssr-main.css', array(), '1.4');
 
 }
 

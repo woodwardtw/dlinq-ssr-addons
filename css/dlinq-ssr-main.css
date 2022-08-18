@@ -19,9 +19,27 @@
 	text-align: center;
 }
 
+#footer #copyright{
+	background-image: url(https://researchmethods.middcreate.net/wp-content/uploads/2022/08/midd_logo_left.png);
+  background-size: 200px;
+  background-repeat: no-repeat;
+  background-position: 40px 25px;
+}
+
+
+#footer #copyright a, #footer #copyright {
+  color:  #fff;
+}
+
   @media only screen and (max-width: 700px) {
   	#ssr-b-nav a.ssr_button {
 		width:  33vw;
-	}
+	 }
+
+  #footer #copyright{
+    background-size: 200px;
+    background-repeat: no-repeat;
+    background-position: bottom center;
+  }
 
  }
