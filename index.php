@@ -154,7 +154,7 @@ function ssr_bottom_nav($content){
    </a>";     
     } 
     if($true === TRUE){
-        return $content . "<div id='ssr-b-nav'>{$html}</div>";
+        return $content . "<div id='ssr-b-nav'><div id='inner-buttons'>{$html}</div></div>";
     } else {
         return $content;
     }   

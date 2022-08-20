@@ -5,8 +5,8 @@
     width: 100%;
     background-color: #0e3a5f;
     z-index: 1000;
-    display: flex;
-    justify-content: space-around;
+   /* display: flex;
+    justify-content: space-between;*/
     transition: all .9s;
 }
 
@@ -14,16 +14,32 @@
 #ssr-b-nav a.ssr_button {
 	color:  #fff;
 	background-color: #54b3a4;
-	margin:  10px;
+	margin:  10px 0;
 	width:  120px;
 	text-align: center;
 }
+
+
+#ssr-b-nav #inner-buttons {
+  margin: 0 auto;
+}
+
+#ssr-b-nav #inner-buttons .previous {
+  float: left;
+  margin-left: 215px;
+}
+
+#ssr-b-nav #inner-buttons .next {
+  float: right;
+  margin-right: 172px;
+}
+
 
 #footer #copyright{
 	background-image: url(https://researchmethods.middcreate.net/wp-content/uploads/2022/08/midd_logo_left.png);
   background-size: 200px;
   background-repeat: no-repeat;
-  background-position: 40px 25px;
+  background-position: 215px 25px;
 }
 
 .single_post_content {
@@ -35,10 +51,20 @@
   color:  #fff;
 }
 
-  @media only screen and (max-width: 700px) {
+@media only screen and (max-width: 700px) {
   	#ssr-b-nav a.ssr_button {
 		width:  33vw;
 	 }
+   #ssr-b-nav #inner-buttons .previous {
+    float: left;
+    margin-left: 10px;
+  }
+
+  #ssr-b-nav #inner-buttons .next {
+    float: right;
+    margin-right: 10px;
+  }
+
 
   #footer #copyright{
     background-size: 200px;
