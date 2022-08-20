@@ -14,7 +14,7 @@ window.onload = function() {
 			const footerNav = document.querySelector('#ssr-b-nav');
 		    if ((window.innerHeight + window.pageYOffset) >= pageHeight-footerHeight) {
 		          const moveIt = (window.innerHeight + window.pageYOffset)-(pageHeight-footerHeight);
-		       console.log((window.innerHeight + window.pageYOffset)-(pageHeight-footerHeight));
+		       //console.log((window.innerHeight + window.pageYOffset)-(pageHeight-footerHeight));
 		       footerNav.style.bottom = moveIt+'px';
 		    }
 		    if ((window.innerHeight + window.pageYOffset) < pageHeight-footerHeight) {
