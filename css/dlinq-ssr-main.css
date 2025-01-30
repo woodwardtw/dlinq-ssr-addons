@@ -50,6 +50,45 @@
   color:  #fff;
 }
 
+/*facet stuff*/
+/* General styling for the container and columns */
+.facet-row {
+  display: flex;
+  flex-wrap: wrap; /* Allows columns to wrap for mobile views */
+  gap: 16px; /* Optional: Adds space between columns */
+}
+
+.facet-col {
+  flex: 1; /* Fixed ratio of 1/4 the width */
+  min-width: 150px; /* Ensures a minimum width for smaller views */
+  box-sizing: border-box;
+  padding: 8px;
+  background-color: #f0f0f0; /* Optional: Background for visual clarity */
+}
+
+.facet-content {
+  flex: 3; /* Fixed ratio of 3/4 the width */
+  min-width: 300px; /* Ensures a minimum width for smaller views */
+  box-sizing: border-box;
+  padding: 8px;
+  background-color: #e0e0e0; /* Optional: Background for visual clarity */ 
+}
+
+.facetwp-template {
+   display: flex;
+  flex-wrap: wrap;
+  gap: 16px; /* Space between inner divs */
+}
+
+.facetwp-template > div {
+  flex: 1 1 400px; /* Ensures inner divs are at least 400px wide */
+  min-width: 300px;
+  box-sizing: border-box;
+  padding: 8px;
+  background-color: #d0d0d0; /* Optional: Background for visual clarity */
+}
+
+
 @media only screen and (max-width: 700px) {
   	#ssr-b-nav a.ssr_button {
 		width:  33vw;
@@ -69,6 +108,16 @@
     background-size: 200px;
     background-repeat: no-repeat;
     background-position: bottom center;
+  }
+
+  .facet-row {
+    flex-direction: column; /* Stacks the two outer columns */
+  }
+
+  .facet-col,
+  .facet-content {
+    flex: 1 1 100%; /* Takes full width in mobile views */
+    min-width: 100%;
   }
 
  }

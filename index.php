@@ -177,7 +177,33 @@ function ssr_remove_parenthesis($title) {
     return substr($title, 0, $position);
 }
 
+//filter content of methods to include ACF fields
+add_filter( 'the_content', 'ssr_method_filter' );
 
+function ssr_method_filter($content){
+    if ( in_array( get_post()->post_type, [ 'method' ] ) ){
+        $basic = get_field('basic_description');
+        $advantages = get_field('potential_advantages');
+        $disadvantages = get_field('potential_disadvantages');
+        $individ = get_field('individualgroup');
+        $resources = get_field('resources');
+        $html = "
+            <h2>Description</h2>
+            {$basic}
+            <h2>Potential Advantages</h2>
+            {$advantages}
+            <h2>Potential Disadvantages</h2>
+            {$disadvantages}
+            <h2>Individual/Group</h2>
+            {$individ}
+            <h2>Resources</h2>
+            {$resources}
+        ";
+            return $html;        
+    } else{
+        return $content;
+    }
+}
 
 //LOGGER -- like frogger but more useful
 
@@ -190,6 +216,111 @@ if ( ! function_exists('write_log')) {
       }
    }
 }
+
+
+//method custom post type
+
+// Register Custom Post Type method
+// Post Type Key: method
+
+function create_method_cpt() {
+
+  $labels = array(
+    'name' => __( 'Methods', 'Post Type General Name', 'textdomain' ),
+    'singular_name' => __( 'Method', 'Post Type Singular Name', 'textdomain' ),
+    'menu_name' => __( 'Method', 'textdomain' ),
+    'name_admin_bar' => __( 'Method', 'textdomain' ),
+    'archives' => __( 'Method Archives', 'textdomain' ),
+    'attributes' => __( 'Method Attributes', 'textdomain' ),
+    'parent_item_colon' => __( 'Method:', 'textdomain' ),
+    'all_items' => __( 'All Methods', 'textdomain' ),
+    'add_new_item' => __( 'Add New Method', 'textdomain' ),
+    'add_new' => __( 'Add New', 'textdomain' ),
+    'new_item' => __( 'New Method', 'textdomain' ),
+    'edit_item' => __( 'Edit Method', 'textdomain' ),
+    'update_item' => __( 'Update Method', 'textdomain' ),
+    'view_item' => __( 'View Method', 'textdomain' ),
+    'view_items' => __( 'View Methods', 'textdomain' ),
+    'search_items' => __( 'Search Methods', 'textdomain' ),
+    'not_found' => __( 'Not found', 'textdomain' ),
+    'not_found_in_trash' => __( 'Not found in Trash', 'textdomain' ),
+    'featured_image' => __( 'Featured Image', 'textdomain' ),
+    'set_featured_image' => __( 'Set featured image', 'textdomain' ),
+    'remove_featured_image' => __( 'Remove featured image', 'textdomain' ),
+    'use_featured_image' => __( 'Use as featured image', 'textdomain' ),
+    'insert_into_item' => __( 'Insert into method', 'textdomain' ),
+    'uploaded_to_this_item' => __( 'Uploaded to this method', 'textdomain' ),
+    'items_list' => __( 'Method list', 'textdomain' ),
+    'items_list_navigation' => __( 'Method list navigation', 'textdomain' ),
+    'filter_items_list' => __( 'Filter Method list', 'textdomain' ),
+  );
+  $args = array(
+    'label' => __( 'method', 'textdomain' ),
+    'description' => __( '', 'textdomain' ),
+    'labels' => $labels,
+    'menu_icon' => '',
+    'supports' => array('title', 'editor', 'revisions', 'author', 'trackbacks', 'custom-fields', 'thumbnail',),
+    'taxonomies' => array('category', 'post_tag'),
+    'public' => true,
+    'show_ui' => true,
+    'show_in_menu' => true,
+    'menu_position' => 5,
+    'show_in_admin_bar' => true,
+    'show_in_nav_menus' => true,
+    'can_export' => true,
+    'has_archive' => true,
+    'hierarchical' => false,
+    'exclude_from_search' => false,
+    'show_in_rest' => true,
+    'publicly_queryable' => true,
+    'capability_type' => 'post',
+    'menu_icon' => 'dashicons-info',
+  );
+  register_post_type( 'method', $args );
+  
+  // flush rewrite rules because we changed the permalink structure
+  global $wp_rewrite;
+  $wp_rewrite->flush_rules();
+}
+add_action( 'init', 'create_method_cpt', 0 );
+
+
+add_action( 'init', 'create_objective_taxonomies', 0 );
+function create_objective_taxonomies()
+{
+  // Add new taxonomy, NOT hierarchical (like tags)
+  $labels = array(
+    'name' => _x( 'Objectives', 'taxonomy general name' ),
+    'singular_name' => _x( 'objective', 'taxonomy singular name' ),
+    'search_items' =>  __( 'Search Objectives' ),
+    'popular_items' => __( 'Popular Objectives' ),
+    'all_items' => __( 'All Objectives' ),
+    'parent_item' => null,
+    'parent_item_colon' => null,
+    'edit_item' => __( 'Edit Objectives' ),
+    'update_item' => __( 'Update objective' ),
+    'add_new_item' => __( 'Add New objective' ),
+    'new_item_name' => __( 'New objective' ),
+    'add_or_remove_items' => __( 'Add or remove Objectives' ),
+    'choose_from_most_used' => __( 'Choose from the most used Objectives' ),
+    'menu_name' => __( 'Objective' ),
+  );
+
+//registers taxonomy specific post types - default is just post
+  register_taxonomy('objectives', array('method'), array(
+    'hierarchical' => true,
+    'labels' => $labels,
+    'show_ui' => true,
+    'update_count_callback' => '_update_post_term_count',
+    'query_var' => true,
+    'rewrite' => array( 'slug' => 'objective' ),
+    'show_in_rest'          => true,
+    'rest_base'             => 'objective',
+    'rest_controller_class' => 'WP_REST_Terms_Controller',
+    'show_in_nav_menus' => true,    
+  ));
+}
+
 
 
 
