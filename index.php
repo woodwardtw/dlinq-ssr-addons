@@ -182,27 +182,32 @@ add_filter( 'the_content', 'ssr_method_filter' );
 
 function ssr_method_filter($content){
     if ( in_array( get_post()->post_type, [ 'method' ] ) ){
-        $basic = get_field('basic_description');
-        $advantages = get_field('potential_advantages');
-        $disadvantages = get_field('potential_disadvantages');
-        $individ = get_field('individualgroup');
-        $resources = get_field('resources');
+        $description = ssr_method_maker('basic_description');
+
+        $advantages = ssr_method_maker('potential_advantages');
+        $disadvantages = ssr_method_maker('potential_disadvantages');
+        
+        $individ = ssr_method_maker('individualgroup');
+        $resources = ssr_method_maker('resources');
         $html = "
-            <h2>Description</h2>
-            {$basic}
-            <h2>Potential Advantages</h2>
+            {$description}
             {$advantages}
-            <h2>Potential Disadvantages</h2>
             {$disadvantages}
-            <h2>Individual/Group</h2>
             {$individ}
-            <h2>Resources</h2>
             {$resources}
         ";
             return $html;        
     } else{
         return $content;
     }
+}
+
+function ssr_method_maker($obj){
+    $basic_obj = get_field_object($obj);
+    $basic = $basic_obj['value'];
+    $basic_label = $basic_obj['label'];
+    return " <h2>{$basic_label}</h2>
+            {$basic}";   
 }
 
 //LOGGER -- like frogger but more useful

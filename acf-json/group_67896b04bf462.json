@@ -26,7 +26,7 @@
         },
         {
             "key": "field_67896b630e77e",
-            "label": "Potential advantages",
+            "label": "Uses",
             "name": "potential_advantages",
             "aria-label": "",
             "type": "wysiwyg",
@@ -48,7 +48,7 @@
         },
         {
             "key": "field_67896b7d0e77f",
-            "label": "Potential disadvantages",
+            "label": "Limitations",
             "name": "potential_disadvantages",
             "aria-label": "",
             "type": "wysiwyg",
@@ -70,7 +70,7 @@
         },
         {
             "key": "field_67896b970e780",
-            "label": "Individual\/Group",
+            "label": "When to Utilize",
             "name": "individualgroup",
             "aria-label": "",
             "type": "wysiwyg",
@@ -137,5 +137,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1738255251
+    "modified": 1742222932
 }
