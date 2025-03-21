@@ -204,7 +204,7 @@ function ssr_method_filter($content){
 
 function ssr_method_maker($obj){
     $basic_obj = get_field_object($obj);
-    $basic = $basic_obj['value'];
+    $basic = $basic_obj['value'];    
     $basic_label = $basic_obj['label'];
     return " <h2>{$basic_label}</h2>
             {$basic}";   
