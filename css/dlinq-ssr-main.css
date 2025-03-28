@@ -117,6 +117,14 @@ a#meth-btn {
 }
 
 
+#method-table{
+  text-align: left;
+}
+
+#method-table th, #method-table td {
+  border: 1px solid;
+}
+
 @media only screen and (max-width: 700px) {
   	#ssr-b-nav a.ssr_button {
 		width:  33vw;

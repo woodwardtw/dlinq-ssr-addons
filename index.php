@@ -221,7 +221,7 @@ function ssr_table_maker($obj_a, $obj_b){
     $basic_label_a = $basic_obj_a['label'];
     $basic_label_b = $basic_obj_b['label'];
     return " 
-        <table>  
+        <table id='method-table'>  
           <thead>
             <tr>
               <th scope='col'>{$basic_label_a}</th>
