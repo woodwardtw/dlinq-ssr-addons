@@ -4,7 +4,7 @@
     "fields": [
         {
             "key": "field_67896b050e77d",
-            "label": "Basic Description",
+            "label": "Purpose",
             "name": "basic_description",
             "aria-label": "",
             "type": "wysiwyg",
@@ -137,5 +137,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1742222932
+    "modified": 1743169715
 }
