@@ -105,8 +105,9 @@
   top: 30%;
 }
 
-.meth-btn {
+a#meth-btn {
   margin: 30px auto;
+  color: #fff;
 }
 
 .resource h3 .facet-link:hover {
