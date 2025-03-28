@@ -184,15 +184,17 @@ function ssr_method_filter($content){
     if ( in_array( get_post()->post_type, [ 'method' ] ) ){
         $description = ssr_method_maker('basic_description');
 
-        $advantages = ssr_method_maker('potential_advantages');
-        $disadvantages = ssr_method_maker('potential_disadvantages');
-        
+        // $advantages = ssr_method_maker('potential_advantages');
+        // $disadvantages = ssr_method_maker('potential_disadvantages');
+        $table = ssr_table_maker('potential_advantages','potential_disadvantages');
+        $img = get_the_post_thumbnail();
         $individ = ssr_method_maker('individualgroup');
         $resources = ssr_method_maker('resources');
         $html = "
+            {$img}
             {$description}
-            {$advantages}
-            {$disadvantages}
+
+            {$table}
             {$individ}
             {$resources}
         ";
@@ -209,6 +211,32 @@ function ssr_method_maker($obj){
     return " <h2>{$basic_label}</h2>
             {$basic}";   
 }
+
+function ssr_table_maker($obj_a, $obj_b){
+    $basic_obj_a = get_field_object($obj_a);
+    $basic_obj_b = get_field_object($obj_b);
+    $basic_value_a = $basic_obj_a['value'];
+    $basic_value_b = $basic_obj_b['value'];    
+    $basic_label_a = $basic_obj_a['label'];
+    $basic_label_b = $basic_obj_b['label'];
+    return " 
+        <table>  
+          <thead>
+            <tr>
+              <th scope='col'>{$basic_label_a}</th>
+              <th scope='col'>{$basic_label_b}</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>{$basic_value_a}</td>
+              <td>{$basic_value_b}</td>
+            </tr>
+        </tbody>
+    </table>
+    ";   
+}
+
 
 //LOGGER -- like frogger but more useful
 
