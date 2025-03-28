@@ -128,6 +128,6 @@
 
  .archive .lay1 .post_content {
   opacity: 1;
-  color: #fff;
+  color: #fff !important;
   text-shadow: 2px 2px 2px black;
  }
