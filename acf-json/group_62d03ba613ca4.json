@@ -23,7 +23,7 @@
             ],
             "post_status": "",
             "taxonomy": "",
-            "allow_archives": 0,
+            "allow_archives": 1,
             "multiple": 0,
             "allow_null": 0,
             "allow_in_bindings": 1
@@ -49,7 +49,7 @@
             ],
             "post_status": "",
             "taxonomy": "",
-            "allow_archives": 0,
+            "allow_archives": 1,
             "multiple": 0,
             "allow_null": 0,
             "allow_in_bindings": 1
@@ -73,5 +73,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1743163088
+    "modified": 1743168702
 }

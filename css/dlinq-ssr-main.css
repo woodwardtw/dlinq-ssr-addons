@@ -125,3 +125,7 @@
  .single-method .nav-box {
   display: none;
  }
+
+ .archive .lay1 .post_content {
+  opacity: 1;
+ }
