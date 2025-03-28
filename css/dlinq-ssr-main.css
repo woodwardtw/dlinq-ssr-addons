@@ -63,7 +63,6 @@
   min-width: 150px; /* Ensures a minimum width for smaller views */
   box-sizing: border-box;
   padding: 8px;
-  background-color: #f0f0f0; /* Optional: Background for visual clarity */
 }
 
 .facet-content {
@@ -71,7 +70,6 @@
   min-width: 300px; /* Ensures a minimum width for smaller views */
   box-sizing: border-box;
   padding: 8px;
-  background-color: #e0e0e0; /* Optional: Background for visual clarity */ 
 }
 
 .facetwp-template {
@@ -85,7 +83,31 @@
   min-width: 300px;
   box-sizing: border-box;
   padding: 8px;
-  background-color: #d0d0d0; /* Optional: Background for visual clarity */
+}
+
+.resource {
+    background-size: cover;
+    background-position: center center;
+    height: 300px;
+}
+
+.resource h3{
+  color: #fff;
+  text-shadow: 2px 2px 2px #000;
+  text-align: center;
+}
+
+.resource h3 .facet-link {
+  height: 100%;
+  display: block;
+  color: #fff !important;
+  transition: all .3s ease;
+  top: 30%;
+}
+
+
+.resource h3 .facet-link:hover {
+  padding-top: 10px;
 }
 
 
