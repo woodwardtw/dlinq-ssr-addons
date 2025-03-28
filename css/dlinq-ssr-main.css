@@ -105,6 +105,9 @@
   top: 30%;
 }
 
+.meth-btn {
+  margin: 30px auto;
+}
 
 .resource h3 .facet-link:hover {
   padding-top: 10px;
