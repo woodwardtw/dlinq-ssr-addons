@@ -96,15 +96,13 @@
 
 .resource h3{
   color: #fff;
-  text-shadow:  -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000;
   text-align: center;
+  background-color: #fff;
+  padding: 5px 15px;
+  line-height: 1.1;
 }
 
-.resource h3 {
-  background-color: red;
-}
-
-.resource h3 .facet-link {
+.resource .facet-link {
  /* height: 100%;
   display: block;*/
   color: #fff !important;
@@ -126,7 +124,7 @@ a#meth-btn {
   color: #fff;
 }
 
-.resource h3 .facet-link:hover {
+.resource .facet-link:hover {
   padding-bottom: 15px;
 }
 
