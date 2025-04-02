@@ -142,11 +142,7 @@ function ssr_bottom_nav($content){
         $html .= "<a class='lts_button lts_button_sc lts_button_default lt_rounded lt_flat ssr_button previous' href='{$prev}'><i class='fa fa-angle-left'></i> Previous
    </a>";   
     }
-    // if (get_field('module', $post_id)){ 
-    //     $true = TRUE;  
-    //     $mod = get_field('module', $post_id);           
-    //     $html .= "<a class='lts_button lts_button_sc lts_button_default lt_rounded lt_flat ssr_button module' href='{$mod}'></i> Next Module </a>";          
-    // } 
+   
     if (get_field('next', $post_id)){        
         $true = TRUE; 
         $next = get_field('next', $post_id);            
@@ -160,7 +156,7 @@ function ssr_bottom_nav($content){
     }   
 }
 
-//remove title elements in () on front end
+//remove title elements in (parenthesis) on front end
 
 add_filter('the_title', 'ssr_clean_duplicate_title', 10, 2);
 function ssr_clean_duplicate_title($title, $id) {
@@ -177,15 +173,13 @@ function ssr_remove_parenthesis($title) {
     return substr($title, 0, $position);
 }
 
-//filter content of methods to include ACF fields
+//filter/create the content of methods post body to include ACF field values
 add_filter( 'the_content', 'ssr_method_filter' );
 
 function ssr_method_filter($content){
     if ( in_array( get_post()->post_type, [ 'method' ] ) ){
         $description = ssr_method_maker('basic_description');
 
-        // $advantages = ssr_method_maker('potential_advantages');
-        // $disadvantages = ssr_method_maker('potential_disadvantages');
         $table = ssr_table_maker('potential_advantages','potential_disadvantages');
         $img = get_the_post_thumbnail();
         $individ = ssr_method_maker('individualgroup');
@@ -205,6 +199,8 @@ function ssr_method_filter($content){
     }
 }
 
+
+//tie acf field and value together so that changes in ACF titles are reflected in the post content
 function ssr_method_maker($obj){
     $basic_obj = get_field_object($obj);
     $basic = $basic_obj['value'];    
@@ -213,6 +209,8 @@ function ssr_method_maker($obj){
             {$basic}";   
 }
 
+
+//Make a table for the pro/con display
 function ssr_table_maker($obj_a, $obj_b){
     $basic_obj_a = get_field_object($obj_a);
     $basic_obj_b = get_field_object($obj_b);
