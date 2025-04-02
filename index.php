@@ -197,7 +197,7 @@ function ssr_method_filter($content){
             {$table}
             {$individ}
             {$resources}
-            <a href='https://researchmethods.middcreate.net/methods/' id='meth-btn' class='button lts_button lts_button_sc lts_button_default lt_rounded lt_flat'>Return to methods</a>
+            <a href='https://researchmethods.middcreate.net/modules/problem-structuring/methods/' id='meth-btn' class='button lts_button lts_button_sc lts_button_default lt_rounded lt_flat'>Return to methods</a>
         ";
             return $html;        
     } else{
